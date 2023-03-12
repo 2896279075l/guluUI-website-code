@@ -34,6 +34,8 @@ export default {
   > .logo {
     max-width: 6em;
     margin-right: auto;
+    justify-content: center;
+    align-items: center;
   }
   > .menu {
     display: flex;
@@ -41,6 +43,14 @@ export default {
     flex-wrap: nowrap;
     > li {
       margin: 0 1em;
+    }
+  }
+  @media (max-width: 500px) {
+    > .menu {
+      display: none;
+    }
+    > .logo {
+      margin: auto;
     }
   }
 }
