@@ -1,8 +1,8 @@
 <template>
   <div>
     <Topnav />
-    <div class="content" v-if="menuVisible">
-      <aside>
+    <div class="content">
+      <aside v-if="menuVisible">
         <h2>组件列表</h2>
         <ol>
           <li><router-link to="/doc/switch">Switch组件</router-link></li>
@@ -11,7 +11,7 @@
           <li><router-link to="/doc/tab">Tabs组件</router-link></li>
         </ol>
       </aside>
-      <main>主内容</main>
+      <main><router-view></router-view></main>
     </div>
   </div>
 </template>
@@ -33,18 +33,23 @@ export default {
 <style lang="scss" scoped>
 aside {
   background: lightblue;
-  width: 150;
+  width: 150px;
   padding: 16px;
-  padding-top: 70px;
-  position: fixed;
-  top: 0;
-  left: 0;
+
   > h2 {
     margin-bottom: 4px;
   }
   > ol {
     > li {
       padding: 4px 0;
+    }
+  }
+  @media (max-width: 500px) {
+    .content > aside {
+      // padding-top: 70px;
+      position: fixed;
+      top: 50px;
+      left: 0;
     }
   }
 }
